@@ -1,0 +1,57 @@
+{
+  "name": "eslint-formatter-interactive",
+  "version": "0.0.0",
+  "description": "Ever had > 1k eslint issues? 🤯 The interactive eslint-formatter comes to the rescue. 🛟⛑️",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "test": "vitest",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matzehecht/eslint-formatter-interactive.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-formatter",
+    "eslintformatter"
+  ],
+  "author": "Matthias Hecht",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matzehecht/eslint-formatter-interactive/issues"
+  },
+  "homepage": "https://github.com/matzehecht/eslint-formatter-interactive#readme",
+  "peerDependencies": {
+    "eslint": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@boehringer-ingelheim/eslint-config": "^7.3.0",
+    "@boehringer-ingelheim/prettier-config": "^2.0.0",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@types/node": "^22.13.5",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
+    "semantic-release": "^24.2.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
