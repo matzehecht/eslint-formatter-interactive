@@ -1,4 +1,4 @@
-import { select } from '@inquirer/prompts';
+import { checkbox } from '@inquirer/prompts';
 import { ESLint } from 'eslint';
 import { blueBright, bold } from 'yoctocolors';
 import type { RuleStats } from './by-rule.utils.js';
@@ -62,26 +62,26 @@ export const byRule: ESLint.Formatter['format'] = async (results) => {
   const sortedRuleStats = [...enrichedRuleStats].sort((a, b) => b.count - a.count);
   const formattedRuleStats = formatGroupedResultsTableData(sortedRuleStats);
 
-  const tmp = formatTable(GROUPED_RESULTS_TABLE_HEADERS, formattedRuleStats);
-  const [headers = '', ...bodyRows] = tmp;
+  const [headers = '', ...bodyRows] = formatTable(GROUPED_RESULTS_TABLE_HEADERS, formattedRuleStats);
 
-  const selectedRule = await select(
+  const selectedRules = await checkbox(
     {
-      choices: bodyRows.map((row, i) => ({ name: row, value: sortedRuleStats[i]?.ruleId })),
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      choices: bodyRows.map((row, i) => ({ name: row, value: sortedRuleStats[i]!.ruleId })),
       loop: true,
-      message: `Select a rule to view details\n${SELECT_INDENT}${headers}`,
+      message: `Select a rule to view details\n${SELECT_INDENT}${headers}\n`,
       pageSize: bodyRows.length,
     },
     { clearPromptOnDone: true },
   );
 
-  if (!selectedRule) {
+  if (selectedRules.length === 0) {
     throw new Error('No rule selected');
   }
 
-  const filteredResults = filterResults(results, (message) => message.ruleId === selectedRule);
+  const filteredResults = filterResults(results, (message) => selectedRules.includes(message.ruleId ?? 'unknown'));
 
-  print(`${blueBright('!')} Results for rule ${bold(selectedRule)}:`);
+  print(`${blueBright('!')} Results for rule(s) ${bold(selectedRules.join(', '))}:`);
 
   const eslint = new ESLint();
   const formatter = await eslint.loadFormatter('stylish');
