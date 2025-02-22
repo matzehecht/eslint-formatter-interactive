@@ -7,5 +7,6 @@ export default defineConfig({
     },
     environment: 'node',
     globals: true,
+    restoreMocks: true,
   },
 });
