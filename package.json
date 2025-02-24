@@ -8,11 +8,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "eslint .",
     "test": "vitest",
     "prepare": "husky"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matzehecht/eslint-formatter-interactive.git"
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/matzehecht/eslint-formatter-interactive#readme",
   "peerDependencies": {
-    "eslint": ">=7.0.0"
+    "eslint": ">=8.0.0"
   },
   "devDependencies": {
     "@boehringer-ingelheim/eslint-config": "^7.3.0",
@@ -53,5 +54,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2",
+    "yoctocolors": "^2.1.1"
   }
 }
