@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/matzehecht/eslint-formatter-interactive#readme",
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": ">=8.40.0"
   },
   "devDependencies": {
     "@boehringer-ingelheim/eslint-config": "^7.3.0",
