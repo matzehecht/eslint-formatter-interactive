@@ -5,7 +5,7 @@ import { bold } from 'yoctocolors';
 import { byRule } from './by-rule.js';
 import { SEVERITY } from './constants.js';
 import { formatTable } from './table.js';
-import { filterResults, print } from './utils.js';
+import { print } from './utils.js';
 
 vi.mock('@inquirer/prompts');
 vi.mock('./utils.js');
@@ -70,7 +70,6 @@ describe('byRule', () => {
 
     vi.mocked(formatTable).mockReturnValue(['formatted results']);
     vi.mocked(checkbox).mockResolvedValue(['no-unused-vars', 'no-console']);
-    vi.mocked(filterResults).mockImplementation((results) => results);
 
     const mockFormatter = { format: vi.fn().mockReturnValue('formatted results') };
     ESLint.prototype.loadFormatter = vi.fn().mockResolvedValue(mockFormatter);

@@ -1,7 +1,7 @@
 import { COLUMN_PADDING } from './constants.js';
 import { transpose } from './utils.js';
 
-type BaseHeaderDefinitions<Columns extends string> = readonly {
+export type BaseHeaderDefinitions<Columns extends string> = readonly {
   key: Columns;
   label: string;
 }[];
