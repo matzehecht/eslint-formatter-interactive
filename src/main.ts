@@ -1,5 +1,6 @@
 import { select } from '@inquirer/prompts';
 import type { ESLint } from 'eslint';
+import { byFile } from './by-file.js';
 import { byRule } from './by-rule.js';
 import { printSummary } from './summary.js';
 import { print } from './utils.js';
@@ -31,10 +32,7 @@ const format: ESLint.Formatter['format'] = async (results, resultsMeta) => {
     return await byRule(results, resultsMeta);
   }
 
-  // continue with file grouping
-  throw new Error('Not implemented yet');
-
-  // return '';
+  return await byFile(results, resultsMeta);
 };
 
 process.on('uncaughtException', (error) => {
