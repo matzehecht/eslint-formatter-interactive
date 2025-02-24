@@ -2,13 +2,20 @@
   "name": "eslint-formatter-interactive",
   "version": "0.0.0",
   "description": "Ever had > 1k eslint issues? 🤯 The interactive eslint-formatter comes to the rescue. 🛟⛑️",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/cjs/main.js",
+  "module": "./dist/esm/main.js",
+  "types": "dist/cjs/main.d.ts",
+  "exports": {
+    "import": "./dist/esm/main.js",
+    "require": "./dist/cjs/main.js"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "npm run build:esm -- --module commonjs  --outDir dist/cjs",
+    "build": "npm run build:cjs && npm run build:esm",
     "lint": "eslint .",
     "test": "vitest",
     "prepare": "husky"
