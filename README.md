@@ -6,7 +6,8 @@
 [![NPM Downloads](https://img.shields.io/npm/dw/eslint-formatter-interactive)](https://www.npmjs.com/package/eslint-formatter-interactive)
 [![GitHub Repo stars](https://img.shields.io/github/stars/matzehecht/eslint-formatter-interactive)](https://github.com/matzehecht/eslint-formatter-interactive/stargazers)
 
-Ever had > 1k eslint issues? 🤯 The interactive eslint-formatter comes to the rescue. 🛟⛑️
+Ever had > 1k eslint issues? 🤯  
+The interactive eslint-formatter comes to the rescue. 🛟⛑️
 
 > ***Note**:* The idea of this formatter is inspired by the great tool [eslint-nibble](https://github.com/IanVS/eslint-nibble) by [IanVS](https://github.com/IanVS).
 
@@ -43,8 +44,8 @@ eslint-formatter-interactive will print a small summary and will give you the ch
 After choosing the grouping variable a rundown off all findings grouped by the chosen grouping variable will be shown. You can now select all the groups you want to see the details of.  
 ![shell screenshot 2](./docs/shell-screenshot2.png)
 
-(In future eslint-formatter-interactive will integrate the eslint auto fix feature in this place)
-The details will then be printed using the eslint stylish formatter.
+(In future eslint-formatter-interactive will integrate the eslint auto fix feature in this place)  
+Last but not least: the details will be printed using the eslint stylish formatter.
 
 ## License
 
