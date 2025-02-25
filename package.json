@@ -2,20 +2,20 @@
   "name": "eslint-formatter-interactive",
   "version": "0.0.0",
   "description": "Ever had > 1k eslint issues? 🤯 The interactive eslint-formatter comes to the rescue. 🛟⛑️",
-  "main": "dist/cjs/main.js",
+  "main": "dist/cjs/main.cjs",
   "module": "./dist/esm/main.js",
   "types": "dist/cjs/main.d.ts",
   "exports": {
     "import": "./dist/esm/main.js",
-    "require": "./dist/cjs/main.js"
+    "require": "./dist/cjs/main.cjs"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build:esm": "tsc -p tsconfig.build.json",
-    "build:cjs": "npm run build:esm -- --module commonjs  --outDir dist/cjs",
-    "build": "npm run build:cjs && npm run build:esm",
+    "transform:cjs": "rollup -c",
+    "build": "npm run build:esm && npm run transform:cjs",
     "lint": "eslint .",
     "test": "vitest",
     "prepare": "husky"
@@ -44,6 +44,7 @@
     "@boehringer-ingelheim/prettier-config": "^2.0.0",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@rollup/plugin-commonjs": "^28.0.2",
     "@types/node": "^22.13.5",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -52,6 +53,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.1",
+    "rollup": "^4.34.8",
+    "rollup-plugin-copy": "^3.5.0",
     "semantic-release": "^24.2.3",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
