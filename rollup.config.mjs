@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 import copy from 'rollup-plugin-copy';
 
 export default {
@@ -10,6 +11,13 @@ export default {
     preserveModules: true, // Keeps individual modules, no bundling
   },
   plugins: [
+    replace({
+      delimiters: ["'", "'"],
+      preventAssignment: true,
+      values: {
+        yoctocolors: JSON.stringify('yoctocolors-cjs'),
+      },
+    }),
     commonjs(),
     copy({
       targets: [
