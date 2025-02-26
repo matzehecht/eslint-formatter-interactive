@@ -3,7 +3,6 @@ import type { ESLint } from 'eslint';
 import { byFile } from './by-file.js';
 import { byRule } from './by-rule.js';
 import { printSummary } from './summary.js';
-import { print } from './utils.js';
 
 const hasFails = (results: ESLint.LintResult[]): boolean => results.some((result) => result.messages.length > 0);
 
@@ -34,14 +33,5 @@ const format: ESLint.Formatter['format'] = async (results, resultsMeta) => {
 
   return await byFile(results, resultsMeta);
 };
-
-process.on('uncaughtException', (error) => {
-  if (error instanceof Error && error.name === 'ExitPromptError') {
-    print('👋 until next time!');
-  } else {
-    // Rethrow unknown errors
-    throw error;
-  }
-});
 
 export default format;
