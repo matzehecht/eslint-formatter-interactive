@@ -35,7 +35,7 @@ export const getFlow =
         choices: bodyRows.map((row, i) => ({ name: row, value: sortedStats[i]!.group })),
         loop: true,
         message: `Select a ${groupLabel} to view details\n${SELECT_INDENT}${headers}\n`,
-        pageSize: bodyRows.length,
+        pageSize: Math.min(bodyRows.length, 10),
       },
       { clearPromptOnDone: true },
     );
