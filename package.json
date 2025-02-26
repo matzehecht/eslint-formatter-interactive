@@ -67,7 +67,9 @@
     }
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.3.2",
+    "@inquirer/checkbox": "^4.1.2",
+    "@inquirer/confirm": "^5.1.6",
+    "@inquirer/select": "^4.0.9",
     "yoctocolors": "^2.1.1",
     "yoctocolors-cjs": "^2.1.2"
   }

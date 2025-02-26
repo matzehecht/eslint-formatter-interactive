@@ -1,4 +1,4 @@
-import { checkbox } from '@inquirer/prompts';
+import checkbox from '@inquirer/checkbox';
 import { ESLint } from 'eslint';
 import { blueBright, bold } from 'yoctocolors';
 import { SELECT_INDENT_WIDTH } from './constants.js';

@@ -1,4 +1,4 @@
-import { select } from '@inquirer/prompts';
+import select from '@inquirer/select';
 import type { ESLint } from 'eslint';
 import { byFile } from './by-file.js';
 import { byRule } from './by-rule.js';

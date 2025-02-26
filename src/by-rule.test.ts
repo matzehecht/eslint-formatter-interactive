@@ -1,4 +1,4 @@
-import { checkbox } from '@inquirer/prompts';
+import checkbox from '@inquirer/checkbox';
 import { ESLint } from 'eslint';
 import { describe, expect, it, vi } from 'vitest';
 import { bold } from 'yoctocolors';
@@ -7,7 +7,7 @@ import { SEVERITY } from './constants.js';
 import { formatTable } from './table.js';
 import { print } from './utils.js';
 
-vi.mock('@inquirer/prompts');
+vi.mock('@inquirer/checkbox');
 vi.mock('./utils.js');
 vi.mock('./table.js');
 vi.mock('eslint');
