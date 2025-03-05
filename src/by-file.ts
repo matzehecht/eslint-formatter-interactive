@@ -1,7 +1,10 @@
+import path from 'path';
 import type { ESLint } from 'eslint';
 import { bold, red, yellow } from 'yoctocolors';
 import type { Stats } from './flow.js';
 import { getFlow } from './flow.js';
+
+const getRelativePath = (filePath: string): string => path.relative(process.cwd(), filePath);
 
 const calculateStats = (results: ESLint.LintResult[]): Stats[] => {
   return results
@@ -14,7 +17,7 @@ const calculateStats = (results: ESLint.LintResult[]): Stats[] => {
         fixable: fixableErrorCount + fixableWarningCount,
         fixableErrors: fixableErrorCount,
         fixableWarnings: fixableWarningCount,
-        group: filePath,
+        group: getRelativePath(filePath),
         occurences: messages.length,
         warnings: warningCount,
       }),
@@ -32,7 +35,7 @@ export const GROUPED_RESULTS_TABLE_HEADERS = [
 ] as const;
 
 export const filterResults = (results: ESLint.LintResult[], selectedGroups: string[]): ESLint.LintResult[] => {
-  return results.filter((result) => selectedGroups.includes(result.filePath));
+  return results.filter((result) => selectedGroups.includes(getRelativePath(result.filePath)));
 };
 
 export const byFile: ESLint.Formatter['format'] = getFlow({

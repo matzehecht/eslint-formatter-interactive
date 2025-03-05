@@ -46,20 +46,20 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-replace": "^6.0.2",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.9",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.21.0",
     "eslint-plugin-prettier": "^5.2.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "prettier": "^3.5.1",
-    "rollup": "^4.34.8",
+    "prettier": "^3.5.3",
+    "rollup": "^4.34.9",
     "rollup-plugin-copy": "^3.5.0",
     "semantic-release": "^24.2.3",
     "tsx": "^4.19.3",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.6"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.7"
   },
   "config": {
     "commitizen": {
@@ -67,7 +67,9 @@
     }
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.3.2",
+    "@inquirer/checkbox": "^4.1.2",
+    "@inquirer/confirm": "^5.1.6",
+    "@inquirer/select": "^4.0.9",
     "yoctocolors": "^2.1.1",
     "yoctocolors-cjs": "^2.1.2"
   }
