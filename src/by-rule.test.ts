@@ -13,7 +13,7 @@ vi.mock('./table.js');
 vi.mock('eslint');
 
 describe('byRule', () => {
-  it.skip('should format results by rule', async () => {
+  it('should format results by rule', async () => {
     const mockResults: ESLint.LintResult[] = [
       {
         errorCount: 0,
