@@ -22,7 +22,7 @@ export const formatTableData = (grouped: Pick<Stats, RelevantStats>[]): Formatte
     errors: red(errors.toString()),
     fatalErrors: red(fatalErrors.toString()),
     fixable: fixable.toString(),
-    group: bold(group.toString()),
+    group: bold(group),
     occurences: occurences.toString(),
     warnings: yellow(warnings.toString()),
   }));
